@@ -28,11 +28,11 @@ Bring your own method - build or re-implement a NN that operates on an existing 
 ### 4. Summary
 #### a. Project description
 
-In summary the project is indeed to create a classification model to detect fake news. Since the type of project chose was the "Bring your own MEthod", it will be tried to improve the results obtained by using BERT, the state of art approach as indicated on the paper from RODRÍGUEZ and IGLESIAS (2019). The project will consist of preparation of the datasets, reserach and try out of different approaches and compare the metrics presented on the paper with the obtained results. In the end, a report and a presentation will be done presenting an introduction, methodology, findings and conclusions.
+In summary, the project aims to create a classification model to detect fake news. Since the type of project chosen was "Bring Your Own Method", an attempt will be made to improve the results obtained using BERT, the state-of-the-art approach as stated in the article by RODRÍGUEZ and IGLESIAS (2019). The project will consist of preparing the datasets, researching and experimenting with different approaches, and comparing the metrics presented in the article with the results obtained. At the end, a report and presentation presenting an introduction, methodology, results and conclusions will be made.
 
 #### b. Dataset description
 
-The datasets used are the same as indicated by RODRÍGUEZ and IGLESIAS (2019). Two different datasets are required, one containing fakenews and the other, the real news. Since they come from different sources, they will have to be modified to have same format and merged to fit on the model.
+The datasets used are the same as indicated by RODRÍGUEZ and IGLESIAS (2019). Two different datasets are required, one containing fakenews and the other, the real news. Since they come from different sources, they will have to be modified to achieve same format and merged to fit on the model.
 
 For fake news: https://www.kaggle.com/datasets/mrisdal/fake-news 
 
