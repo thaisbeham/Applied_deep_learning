@@ -49,6 +49,11 @@ For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-dat
 * Presentation: 4
 
 
+## Assigment 2 - Hacking
+
+### Methodology
+First approach was to implement BERT, as specified bevor. I implemented and it was too havy to load on my computer, therefor I had to recur to Google Colab, even there it took a long time and in the end it only predicted everything as 1. Afterwards I tried to implement LSTM since is faster and also produce good results. I used again google colab and it reached an accuracy of 0.98 on the first try, without optimizing parameters. 
+Next steps would be to analyze if there is an overfitt and try to train the model with more data from other sources.
 
 
 
