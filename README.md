@@ -52,10 +52,36 @@ For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-dat
 ## Assigment 2 - Hacking
 
 ### Methodology
-First approach was to implement BERT, as specified bevor. I implemented and it was too havy to load on my computer, therefor I had to recur to Google Colab, even there it took a long time and in the end it only predicted everything as 1. Afterwards I tried to implement LSTM since is faster and also produce good results. I used again google colab and it reached an accuracy of 0.98 on the first try, without optimizing parameters. 
+First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even there it took around 5 hours and the results were not satisfatory, since all the predictios were as 1. 
+Afterwards it was tried to implement LSTM model as it is faster and an well-estabilished  model. It was again implemented in Google Colab, taking less than 1 hour. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
+
+
 Next steps would be to analyze if there is an overfitt and try to train the model with more data from other sources.
 
+Results from fisrt approach: 
+122/122 [==============================] - 1s 6ms/step - loss: 0.1099 - accuracy: 0.9608
+Test set
+  Loss: 0.110
+  Accuracy: 0.961
+122/122 [==============================] - 0s 4ms/step
+Number Real news: 1988
+Number Fake news: 1912
 
+Classification Report
+              precision    recall  f1-score   support
+
+     class 0       0.95      0.97      0.96      1891
+     class 1       0.97      0.96      0.96      2009
+
+    accuracy                           0.96      3900
+   macro avg       0.96      0.96      0.96      3900
+weighted avg       0.96      0.96      0.96      3900
+
+
+Confusion Matrix
+              class_0 True  class_1 True
+class_0 pred          1825            66
+class_1 pred            87          1922
 
 
 
