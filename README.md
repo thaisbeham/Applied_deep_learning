@@ -55,10 +55,13 @@ For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-dat
 First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even there it took around 5 hours and the results were not satisfatory, since all the predictios were as 1. 
 Afterwards it was tried to implement LSTM model as it is faster and an well-estabilished  model. It was again implemented in Google Colab, taking less than 1 hour. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
 
+Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets to see how the results vary.
 
-Next steps would be to analyze if there is an overfitt and try to train the model with more data from other sources.
+* Approach 1: LSTM using the 13000 real news (from year 2016) and 13000 fake news from from the sources indicated on the dataset section
 
-Results from fisrt approach: 
+### Approach 1 results:
+
+
 122/122 [==============================] - 1s 6ms/step - loss: 0.1099 - accuracy: 0.9608
 Test set
   Loss: 0.110
@@ -87,4 +90,48 @@ Confusion Matrix
 
 
 
+Approach 2: using all the data of real news
 
+Classification Report
+
+              precision    recall  f1-score   support
+
+     class 0       0.98      0.93      0.96      1881
+     class 1       0.99      1.00      0.99     10371
+
+    accuracy                           0.99     12252
+    macro avg     0.98      0.96       0.97     12252
+    weighted avg  0.99      0.99       0.99     12252
+
+
+Confusion Matrix
+
+                  class_0 True  class_1 True
+    class_0 pred     1751           130
+    class_1 pred      32           10339
+    
+    
+### Aprroach 3: Using 1 more dataset for fake news and one more for real news: 
+https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?resource=download
+
+
+Number Real news: 5773
+Number Fake news: 5162
+
+Classification Report
+
+              precision    recall  f1-score   support
+
+     class 0       0.97      0.93      0.95      5406
+     class 1       0.93      0.97      0.95      5529
+
+    accuracy                           0.95     10935
+    macro avg      0.95      0.95      0.95     10935
+    weighted avg   0.95      0.95      0.95     10935
+
+
+Confusion Matrix
+
+                    class_0 True  class_1 True
+    class_0 pred          5013           393
+    class_1 pred           149          5380
