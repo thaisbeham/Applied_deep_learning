@@ -68,20 +68,22 @@ Number Real news: 1988
 Number Fake news: 1912
 
 Classification Report
+
               precision    recall  f1-score   support
 
      class 0       0.95      0.97      0.96      1891
      class 1       0.97      0.96      0.96      2009
 
-    accuracy                           0.96      3900
-   macro avg       0.96      0.96      0.96      3900
-weighted avg       0.96      0.96      0.96      3900
+    accuracy                            0.96      3900
+    macro avg       0.96      0.96      0.96      3900
+    weighted avg    0.96      0.96      0.96      3900
 
 
 Confusion Matrix
+
               class_0 True  class_1 True
-class_0 pred          1825            66
-class_1 pred            87          1922
+    class_0 pred    1825            66
+    class_1 pred      87          1922
 
 
 
