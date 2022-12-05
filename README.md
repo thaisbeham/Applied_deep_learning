@@ -90,7 +90,7 @@ Confusion Matrix
 
 
 
-Approach 2: using all the data of real news
+### Approach 2: using all the data of real news
 
 Classification Report
 
