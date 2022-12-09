@@ -40,13 +40,13 @@ For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-dat
 
 #### c. Work-breakdown structure with time estimates:
 
-* Research (reading papers, understand models, etc): 10
-* Merge datasets, preprocessing: 4
-* Design and building appropriate network: 5
-* Training and fine-tuning: 4
-* Building application to present the results: 5
-* Writing final report: 6
-* Presentation: 4
+* Research (reading papers, understand models, etc): 10 hours
+* Merge datasets, preprocessing: 4 hours
+* Design and building appropriate network: 5 hours
+* Training and fine-tuning: 4 hours
+* Building application to present the results: 5 hours
+* Writing final report: 6 hours
+* Presentation: 4 hours
 
 
 ## Assigment 2 - Hacking
@@ -135,3 +135,14 @@ Confusion Matrix
                     class_0 True  class_1 True
     class_0 pred          5013           393
     class_1 pred           149          5380
+    
+
+
+### Time required
+
+    merging dataset: 1,5 hours
+    BERT: 5 hours
+    LSTM: 4 hours
+    create pipeline: 3 hours
+    test different datasets: 2 hours
+    test different parameters:
