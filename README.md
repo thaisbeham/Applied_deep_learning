@@ -62,21 +62,21 @@ Details: https://www.uvic.ca/engineering/ece/isot/assets/docs/ISOT_Fake_News_Dat
 
 ### Methodology
 First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even using Google Colab GPU resource, it took around 5 hours and the results were not satisfatory (all the predictios were as 1). 
-Afterwards, it was tried to implement LSTM model as it is faster and an well-estabilished model. It was again implemented in Google Colab, it took around 1 minute to train. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
+Afterwards, it was tried to implement LSTM model as it is faster and a well-estabilished model. It was again implemented in Google Colab, it took around 1 minute to train. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
 
 Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets and parameters to see how the results vary.
 
 As part of the preprocessing step, stopwords were removed, as well as cracters not identified as words ('!"#$%&()*+,-./:;<=>?@[|}~)
 
-. To avoid overfitting, the training epochs are stopped as soon as the validation accuracy does not improve after 3 iterations.
+To avoid overfitting, the training epochs are stopped as soon as the validation accuracy does not improve after 3 iterations.
 
-The model were structure as following:
+The model is structure as following:
 
 ![image](https://user-images.githubusercontent.com/47119194/206860189-0f966356-1b6d-4564-b252-65e7c37c7901.png)
 
 
 
-Approaches tried:
+### Approaches tried:
 
 Baseline parameters:
     max_words = 1000
@@ -89,23 +89,27 @@ Baseline parameters:
  > f1score: 0.97 for both classes
  
 * Increase of number of words and lenght of setences with same datasets: Number of words = 5000 and lenght of sentences = 500. 
-> f1socre: 0.97 for class 0 and 0.99 for class 1
+> f1score: 0.97 for class 0 and 0.99 for class 1
 
 * Lower number of words and lenght of sentences with same datasets:  Number of words = 300 and lenght of sentences = 50.
 > f1score: 0.97 for both classes
 
 * Set datasets of fake and real as similar size (15000 rows for real news and 12999 for fake news), using baseline parameters.
-> f1socre: 0.97 for class 0 and 0.98 for class 1
+> f1score: 0.97 for class 0 and 0.98 for class 1
 
 * Add two more datasets from ISOT Dataset[1], use baseline parameters.
-> f1socre: 0.96 for class 0 and 0.99 for class 1
+> f1score: 0.96 for class 0 and 0.99 for class 1
 
 The final two approaches were done with the same parameters as the baseline approach since the evaluation on validation set did not presentedn any significance change.
+
+### Final model
 
 Lastly, the model from the last approach (4 datasets and baseline parameters) was chosen as the final model, since it present higher number of datasets what makes it amore complete model and performed as good as the others on validation set. Therefore it was finally tested on the test set. 
 
 Results on test set: f1socre: 0.96 for class 0 and 0.99 for class 1
 
+### Final considerations
+Since the model performed with very high accuracy on all the tests, it is an indication that something could be wrong regarding the implementation. In that way I tried to revise the code and also asked for a collegue to do it and we both could not identied what could be wrong.
 
 ### Time required
 
