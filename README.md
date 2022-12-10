@@ -143,6 +143,9 @@ Confusion Matrix
     merging dataset: 1,5 hours
     BERT: 5 hours
     LSTM: 4 hours
+    add stopwords: 1 hour
     create pipeline: 3 hours
     test different datasets: 2 hours
-    test different parameters:
+    test different parameters: 2 hours
+    ask feedback from colleague: 1 hour
+    
