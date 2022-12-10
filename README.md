@@ -79,6 +79,7 @@ The model is structure as following:
 ### Approaches tried:
 
 Baseline parameters:
+
     max_words = 1000
     max_len = 300
     n_batchsize = 128
@@ -109,7 +110,7 @@ Lastly, the model from the last approach (4 datasets and baseline parameters) wa
 Results on test set: f1socre: 0.96 for class 0 and 0.99 for class 1
 
 ### Final considerations
-Since the model performed with very high accuracy on all the tests, it is an indication that something could be wrong regarding the implementation. In that way I tried to revise the code and also asked for a collegue to do it and we both could not identied what could be wrong.
+Since the model performed with very high accuracy on all the tests, it is an indication that something could be wrong regarding the implementation. In that way I tried to review the code and asked for a collegue to do it too and we both could not identied what could be wrong.
 
 ### Time required
 
