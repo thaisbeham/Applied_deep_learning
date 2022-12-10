@@ -66,7 +66,9 @@ Afterwards, it was tried to implement LSTM model as it is faster and an well-est
 
 Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets and parameters to see how the results vary.
 
-As part of the preprocessing step, stopwords were removed, as well as cracters not identified as words ('!"#$%&()*+,-./:;<=>?@[\]^_`{|}~). To avoid overfitting, the training epochs are stopped as soon as the validation accuracy does not improve after 3 iterations.
+As part of the preprocessing step, stopwords were removed, as well as cracters not identified as words ('!"#$%&()*+,-./:;<=>?@[|}~)
+
+. To avoid overfitting, the training epochs are stopped as soon as the validation accuracy does not improve after 3 iterations.
 
 The model were structure as following:
 
@@ -98,12 +100,11 @@ Baseline parameters:
 * Add two more datasets from ISOT Dataset[1], use baseline parameters.
 > f1socre: 0.96 for class 0 and 0.99 for class 1
 
-Lastly, the final model ( 4 datasets and baseline parameters) was tested on the test set. 
-The results were: f1socre: 0.96 for class 0 and 0.99 for class 1
-
 The final two approaches were done with the same parameters as the baseline approach since the evaluation on validation set did not presentedn any significance change.
 
-    
+Lastly, the model from the last approach (4 datasets and baseline parameters) was chosen as the final model, since it present higher number of datasets what makes it amore complete model and performed as good as the others on validation set. Therefore it was finally tested on the test set. 
+
+Results on test set: f1socre: 0.96 for class 0 and 0.99 for class 1
 
 
 ### Time required
@@ -116,6 +117,8 @@ The final two approaches were done with the same parameters as the baseline appr
     test different datasets: 2 hours
     test different parameters: 2 hours
     ask feedback from colleague: 1 hour
+    add earlystop and fix small errors: 1 hour
+    write report for part 2: 1 hour
     
     
 ## References:
