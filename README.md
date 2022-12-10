@@ -1,6 +1,6 @@
 # Applied Deep Learning - W2022
 
-## Assigment 1 - Initiate
+## Assignment 1 - Initiate
 
 ### 1. Scientific papers related to the topic
 
@@ -58,7 +58,7 @@ Details: https://www.uvic.ca/engineering/ece/isot/assets/docs/ISOT_Fake_News_Dat
 * Presentation: 4 hours
 
 
-## Assigment 2 - Hacking
+## Assignment 2 - Hacking
 
 ### Methodology
 First approach was to implement BERT, as specified before. Due to it be very computationally expensive, Google Colab was used to run the code. Even using Google Colab GPU resource, it took around 5 hours and the results were not satisfatory (all the predictios were as 1). 
