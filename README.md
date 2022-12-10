@@ -32,11 +32,20 @@ In summary, the project aims to create a classification model to detect fake new
 
 #### b. Dataset description
 
-The datasets used are the same as indicated by RODRÍGUEZ and IGLESIAS (2019). Two different datasets are required, one containing fakenews and the other, the real news. Since they come from different sources, they will have to be modified to achieve same format and merged to fit on the model.
+For a first approach, two datasets are chosen as the same datasets indicated by RODRÍGUEZ and IGLESIAS (2019)[2], one containing fakenews and the other, the real news. Since they come from different sources, they will have to be modified to achieve same format and merged to fit on the model. Additionally, since the real news dataset is huge in size and comprisse several folders for different years, it was chosen only the year 2016 since it is the same year as the fakenews dataset.
 
-For fake news: https://www.kaggle.com/datasets/mrisdal/fake-news 
+* fake news: BS Detector dataset: https://www.kaggle.com/datasets/mrisdal/fake-news size: 12999 rows
+The fake news were news collected from 244 different website that were classified as fake by the "BS Detector Chrome Extension by Daniel Sieradsk".
 
-For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-data
+* real news: New York Times dataset (year 2016):https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-data size: 105606 rows
+
+As an second approach, new datasets were added to train the model and evaluate how it would perfom with more diverse data, from diverent sources.
+
+* ISOT dataset[1]: A dataset that has combined fake news and real news. The real news are articles from Reuters.com (news website) and the fake news are articles collected from unreliable websites that were flagged by Politifact (a fact-checking organization in the USA) and Wikipedia. Source: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?resource=download
+Details: https://www.uvic.ca/engineering/ece/isot/assets/docs/ISOT_Fake_News_Dataset_ReadMe.pdf
+
+
+
 
 #### c. Work-breakdown structure with time estimates:
 
@@ -52,89 +61,48 @@ For real news: https://www.kaggle.com/datasets/tumanovalexander/nyt-articles-dat
 ## Assigment 2 - Hacking
 
 ### Methodology
-First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even there it took around 5 hours and the results were not satisfatory, since all the predictios were as 1. 
-Afterwards it was tried to implement LSTM model as it is faster and an well-estabilished  model. It was again implemented in Google Colab, taking less than 1 hour. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
+First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even using Google Colab GPU resource, it took around 5 hours and the results were not satisfatory (all the predictios were as 1). 
+Afterwards, it was tried to implement LSTM model as it is faster and an well-estabilished model. It was again implemented in Google Colab, it took around 1 minute to train. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
 
-Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets to see how the results vary.
+Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets and parameters to see how the results vary.
 
-* Approach 1: LSTM using the 13000 real news (from year 2016) and 13000 fake news from from the sources indicated on the dataset section
+As part of the preprocessing step, stopwords were removed, as well as cracters not identified as words ('!"#$%&()*+,-./:;<=>?@[\]^_`{|}~). To avoid overfitting, the training epochs are stopped as soon as the validation accuracy does not improve after 3 iterations.
 
-### Approach 1 results:
+The model were structure as following:
 
-
-122/122 [==============================] - 1s 6ms/step - loss: 0.1099 - accuracy: 0.9608
-Test set
-  Loss: 0.110
-  Accuracy: 0.961
-122/122 [==============================] - 0s 4ms/step
-Number Real news: 1988
-Number Fake news: 1912
-
-Classification Report
-
-              precision    recall  f1-score   support
-
-     class 0       0.95      0.97      0.96      1891
-     class 1       0.97      0.96      0.96      2009
-
-    accuracy                            0.96      3900
-    macro avg       0.96      0.96      0.96      3900
-    weighted avg    0.96      0.96      0.96      3900
-
-
-Confusion Matrix
-
-              class_0 True  class_1 True
-    class_0 pred    1825            66
-    class_1 pred      87          1922
+![image](https://user-images.githubusercontent.com/47119194/206860189-0f966356-1b6d-4564-b252-65e7c37c7901.png)
 
 
 
-### Approach 2: using all the data of real news
+Approaches tried:
 
-Classification Report
+Baseline parameters:
+    max_words = 1000
+    max_len = 300
+    n_batchsize = 128
+    n_epochs = 20
+    dropout = 0.2
 
-              precision    recall  f1-score   support
+* Baseline: 2 datasets: fakenews from BS Detector and real news from New York Times (details explained on the previous section). Number of words = 1000 and lenght of sentences = 300
+ > f1score: 0.97 for both classes
+ 
+* Increase of number of words and lenght of setences with same datasets: Number of words = 5000 and lenght of sentences = 500. 
+> f1socre: 0.97 for class 0 and 0.99 for class 1
 
-     class 0       0.98      0.93      0.96      1881
-     class 1       0.99      1.00      0.99     10371
+* Lower number of words and lenght of sentences with same datasets:  Number of words = 300 and lenght of sentences = 50.
+> f1score: 0.97 for both classes
 
-    accuracy                           0.99     12252
-    macro avg     0.98      0.96       0.97     12252
-    weighted avg  0.99      0.99       0.99     12252
+* Set datasets of fake and real as similar size (15000 rows for real news and 12999 for fake news), using baseline parameters.
+> f1socre: 0.97 for class 0 and 0.98 for class 1
 
+* Add two more datasets from ISOT Dataset[1], use baseline parameters.
+> f1socre: 0.96 for class 0 and 0.99 for class 1
 
-Confusion Matrix
+Lastly, the final model ( 4 datasets and baseline parameters) was tested on the test set. 
+The results were: f1socre: 0.96 for class 0 and 0.99 for class 1
 
-                  class_0 True  class_1 True
-    class_0 pred     1751           130
-    class_1 pred      32           10339
-    
-    
-### Aprroach 3: Using 1 more dataset for fake news and one more for real news: 
-https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?resource=download
+The final two approaches were done with the same parameters as the baseline approach since the evaluation on validation set did not presentedn any significance change.
 
-
-Number Real news: 5773
-Number Fake news: 5162
-
-Classification Report
-
-              precision    recall  f1-score   support
-
-     class 0       0.97      0.93      0.95      5406
-     class 1       0.93      0.97      0.95      5529
-
-    accuracy                           0.95     10935
-    macro avg      0.95      0.95      0.95     10935
-    weighted avg   0.95      0.95      0.95     10935
-
-
-Confusion Matrix
-
-                    class_0 True  class_1 True
-    class_0 pred          5013           393
-    class_1 pred           149          5380
     
 
 
@@ -149,3 +117,9 @@ Confusion Matrix
     test different parameters: 2 hours
     ask feedback from colleague: 1 hour
     
+    
+## References:
+
+[1] Ahmed H, Traore I, Saad S. “Detecting opinion spams and fake news using text classification”, Journal of Security and Privacy, Volume 1, Issue 1, Wiley, January/February 2018
+
+[2] Rodríguez, Á. I., & Iglesias, L. L. (2019). Fake news detection using deep learning. arXiv preprint arXiv:1910.03496.
