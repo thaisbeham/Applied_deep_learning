@@ -61,7 +61,7 @@ Details: https://www.uvic.ca/engineering/ece/isot/assets/docs/ISOT_Fake_News_Dat
 ## Assigment 2 - Hacking
 
 ### Methodology
-First approach was to implement BERT, as specified bevor. Due to it be very computationally expensive, Google Colab was used to run the code. Even using Google Colab GPU resource, it took around 5 hours and the results were not satisfatory (all the predictios were as 1). 
+First approach was to implement BERT, as specified before. Due to it be very computationally expensive, Google Colab was used to run the code. Even using Google Colab GPU resource, it took around 5 hours and the results were not satisfatory (all the predictios were as 1). 
 Afterwards, it was tried to implement LSTM model as it is faster and a well-estabilished model. It was again implemented in Google Colab, it took around 1 minute to train. It reached on the first run an accuracy of 0.98, without optimizing parameters. 
 
 Since the accuracy was very high on the first try, it could be an indication of overfit. On this way, it was tried to modify the datasets and parameters to see how the results vary.
