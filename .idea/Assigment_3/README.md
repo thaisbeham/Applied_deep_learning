@@ -8,4 +8,6 @@ python Demo_appl.px path_real = <path of the real news> path_fake = <path of fak
 ```
 
   
- Output: .txt file with predictions, Confusion Matrix and Classification Report
+ Output: out.txt file with predictions, Confusion Matrix and Classification Report.
+ 
+ 
