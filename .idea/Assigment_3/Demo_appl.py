@@ -60,6 +60,10 @@ import click
 nltk.download("stopwords")
 nltk.download("punkt")
 
+
+##############
+#---Parameters
+#############
 max_words = 1000
 max_len = 300
 n_batchsize = 128
